@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <!-- Basic display text -->
+    <div class="app">
+      {{ message }}
+    </div>
+    <!-- Bind text -->
+    <div class="app2">
+      <span v-bind:title="message">
+        Hover your mouse over me for a few seconds to see my dynamically bound title!
+      </span>
+    </div>
+    <!-- Hide and show -->
+    <div class="app3">
+      <p v-if="seen">Now you see me</p>
+    </div>
+    <!-- For loops/lists (like ng-repeat) -->
+    <div id="app-4">
+      <ol>
+        <li v-for="todo in todos">
+          {{ todo.text }}
+        </li>
+      </ol>
+    </div>
+    <!-- Functions -->
+    <div class="app5">
+      <p>{{ message }}</p>
+      <button v-on:click="reverseMessage">{{ reverseMessageText }}</button>
+    </div>
+    <!-- Input and binding -->
+    <div class="app6">
+      <p>{{ message }}</p>
+      <input v-model="message">
+    </div>
+    <!-- Components and props -->
+    <div class="app7">
+      <ol>
+        <!-- Create a for loop for all items in grocery list, then bind each item to the 'todo' prop in the todo-item component -->
+        <todo-item v-for="item in groceryList" v-bind:todo="item"></todo-item>
+      </ol>
+    </div>
+  </body>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="./app.js"></script>
+</html>
